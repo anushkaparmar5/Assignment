@@ -17,25 +17,8 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  // Add base URL for deployment
-  base: "./",
-  // Build configuration
+  base: "/", // ✅ IMPORTANT
   build: {
     outDir: "dist",
-    sourcemap: false,
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          vendor: ["react", "react-dom", "react-redux"],
-          redux: ["@reduxjs/toolkit", "redux"],
-        },
-      },
-    },
-  },
-  // Server configuration
-  server: {
-    headers: {
-      "Content-Type": "application/javascript",
-    },
   },
 });
